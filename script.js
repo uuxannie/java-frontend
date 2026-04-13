@@ -22,14 +22,13 @@ async function summarizeQuestion() {
   const questionText = questionInput.value.trim();
 
   if (!questionText) {
-    setStatus("Please paste a Java question first.");
+    setStatus("Paste a question first.");
     return;
   }
 
   setLoading(true);
-  setStatus("Summarizing question...");
+  setStatus("Summarizing...");
   summaryOutput.value = "";
-  solutionOutput.textContent = "Your Java solution will appear here...";
 
   try {
     const response = await fetch(`${BACKEND_BASE_URL}/java/summarize`, {
@@ -46,10 +45,10 @@ async function summarizeQuestion() {
 
     const data = await response.json();
     summaryOutput.value = data.summary || "";
-    setStatus("Summary generated.");
+    setStatus("Summary ready.");
   } catch (error) {
     console.error(error);
-    setStatus("Failed to summarize the question.");
+    setStatus("Summarize failed.");
   } finally {
     setLoading(false);
   }
@@ -59,13 +58,13 @@ async function generateSolution() {
   const summaryText = summaryOutput.value.trim();
 
   if (!summaryText) {
-    setStatus("Please generate or paste a summary first.");
+    setStatus("Create or paste a summary first.");
     return;
   }
 
   setLoading(true);
-  setStatus("Generating Java solution...");
-  solutionOutput.textContent = "Generating solution...";
+  setStatus("Generating...");
+  solutionOutput.value = "";
 
   try {
     const response = await fetch(`${BACKEND_BASE_URL}/java/solve`, {
@@ -81,31 +80,30 @@ async function generateSolution() {
     }
 
     const data = await response.json();
-    solutionOutput.textContent = data.solution || "No solution returned.";
-    setStatus("Java solution generated.");
+    solutionOutput.value = data.solution || "";
+    setStatus("Code ready.");
   } catch (error) {
     console.error(error);
-    solutionOutput.textContent = "Failed to generate solution.";
-    setStatus("Failed to generate the Java solution.");
+    setStatus("Generation failed.");
   } finally {
     setLoading(false);
   }
 }
 
 async function copySolution() {
-  const text = solutionOutput.textContent.trim();
+  const text = solutionOutput.value.trim();
 
-  if (!text || text === "Your Java solution will appear here..." || text === "Generating solution...") {
-    setStatus("There is no solution to copy yet.");
+  if (!text) {
+    setStatus("Nothing to copy.");
     return;
   }
 
   try {
     await navigator.clipboard.writeText(text);
-    setStatus("Solution copied to clipboard.");
+    setStatus("Copied.");
   } catch (error) {
     console.error(error);
-    setStatus("Failed to copy the solution.");
+    setStatus("Copy failed.");
   }
 }
 
