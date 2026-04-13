@@ -4,46 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Java Question Solver</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Java Question Solver</h1>
-    <p class="subtitle">Paste a full Java question, summarize it, then generate code.</p>
-
-    <section class="card">
-      <h2>1. Full Question</h2>
-      <textarea
-        id="questionInput"
-        placeholder="Paste the full Java programming question here..."
-      ></textarea>
-      <div class="button-row">
-        <button id="summarizeBtn">Summarize</button>
+    <header class="page-header">
+      <div>
+        <h1>Java Question Solver</h1>
+        <p class="subtitle">Paste a full Java question, summarize it, then generate code.</p>
       </div>
-    </section>
+    </header>
 
-    <section class="card">
-      <h2>2. Structured Summary</h2>
-      <textarea
-        id="summaryOutput"
-        placeholder="The summary will appear here..."
-      ></textarea>
-      <div class="button-row">
-        <button id="solveBtn">Generate Java Solution</button>
-      </div>
-    </section>
+    <main class="main-grid">
+      <section class="card">
+        <div class="section-header">
+          <h2>1. Full Question</h2>
+          <button id="summarizeBtn" class="secondary-btn">Summarize</button>
+        </div>
+        <textarea
+          id="questionInput"
+          placeholder="Paste the full Java programming question here..."
+        ></textarea>
+      </section>
 
-    <section class="card">
-      <h2>3. Java Solution</h2>
-      <pre id="solutionOutput">Your Java solution will appear here...</pre>
-      <div class="button-row">
-        <button id="copyBtn">Copy Code</button>
-      </div>
-    </section>
+      <section class="card">
+        <div class="section-header">
+          <h2>2. Structured Summary</h2>
+          <button id="solveBtn" class="secondary-btn">Generate Solution</button>
+        </div>
+        <textarea
+          id="summaryOutput"
+          placeholder="The summary will appear here..."
+        ></textarea>
+      </section>
+
+      <section class="card code-card">
+        <div class="section-header">
+          <h2>3. Java Solution</h2>
+          <button id="copyBtn" class="secondary-btn">Copy Code</button>
+        </div>
+        <pre id="solutionOutput">Your Java solution will appear here...</pre>
+      </section>
+    </main>
 
     <p id="statusText" class="status"></p>
   </div>
 
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
