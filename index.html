@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java Question Solver</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Java Question Solver</h1>
+    <p class="subtitle">Paste a full Java question, summarize it, then generate code.</p>
+
+    <section class="card">
+      <h2>1. Full Question</h2>
+      <textarea
+        id="questionInput"
+        placeholder="Paste the full Java programming question here..."
+      ></textarea>
+      <div class="button-row">
+        <button id="summarizeBtn">Summarize</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Structured Summary</h2>
+      <textarea
+        id="summaryOutput"
+        placeholder="The summary will appear here..."
+      ></textarea>
+      <div class="button-row">
+        <button id="solveBtn">Generate Java Solution</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Java Solution</h2>
+      <pre id="solutionOutput">Your Java solution will appear here...</pre>
+      <div class="button-row">
+        <button id="copyBtn">Copy Code</button>
+      </div>
+    </section>
+
+    <p id="statusText" class="status"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
