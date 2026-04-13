@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java Solver</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
 <body>
   <div class="container">
-    <header class="page-header">
-      
-    </header>
-
     <main class="main-grid">
       <section class="card">
         <div class="section-header">
-          <h2>1. Full Question</h2>
-          <button id="summarizeBtn" class="secondary-btn">Summarize</button>
+          <h2>question</h2>
+          <button id="summarizeBtn" class="icon-btn" title="Summarize">⌁</button>
         </div>
         <textarea
           id="questionInput"
@@ -20,8 +22,8 @@
 
       <section class="card">
         <div class="section-header">
-          <h2>2. Structured Summary</h2>
-          <button id="solveBtn" class="secondary-btn">Generate Solution</button>
+          <h2>summary</h2>
+          <button id="solveBtn" class="icon-btn" title="Generate solution">→</button>
         </div>
         <textarea
           id="summaryOutput"
@@ -31,8 +33,8 @@
 
       <section class="card code-card">
         <div class="section-header">
-          <h2>3. Java Solution</h2>
-          <button id="copyBtn" class="secondary-btn">Copy Code</button>
+          <h2>code</h2>
+          <button id="copyBtn" class="icon-btn" title="Copy code">⧉</button>
         </div>
         <pre id="solutionOutput">Your Java solution will appear here...</pre>
       </section>
